@@ -11,12 +11,13 @@ The ***get_next_line*** project is a foundational exercise at 42 that challenges
 The core goal is to return each line of a file — including the newline character — on successive calls, all while efficiently managing memory and buffer usage.
 
 What I had to do:
-* I implemented the function `get_next_line(int fd)` to:
-* Read from a file descriptor until a full line is found (ending in `\n` or `EOF`)
-* Return that line, dynamically allocating the necessary memory
-* Maintain state between function calls to continue reading where it left off
-* Handle multiple file descriptors simultaneously (bonus part)
-* To achieve this, I had to:
+* Implemented the function `get_next_line(int fd)` to:
+  * Read from a file descriptor until a full line is found (ending in `\n` or `EOF`)
+  * Return that line, dynamically allocating the necessary memory
+  * Maintain state between function calls to continue reading where it left off
+  * Handle multiple file descriptors simultaneously (bonus part)
+
+To achieve this, I had to:
   * Use static variables to store leftover data between function calls
   * Carefully manage buffer allocation and joining strings across reads
   * Handle cases where a line is split across multiple reads
@@ -24,9 +25,9 @@ What I had to do:
 
 Bonus Part: Multi-FD Support & Efficiency
 * For the bonus part, I extended get_next_line to:
-* Work with multiple file descriptors at the same time, using one buffer per descriptor
-* Handle edge cases like reading from empty files, very long lines, or interrupted reads
-* Optimize memory usage and avoid leaks with precise error handling
+  * Work with multiple file descriptors at the same time, using one buffer per descriptor
+  * Handle edge cases like reading from empty files, very long lines, or interrupted reads
+  * Optimize memory usage and avoid leaks with precise error handling
 
 What I Learned:
 * Efficient reading from file descriptors using low-level I/O (read)
